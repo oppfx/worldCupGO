@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>世界杯GO</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <!-- <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"> -->
+    <link rel="stylesheet" href="./stylesheets/app.css">
+  </head>
+  <body>
+      <div class="noExtension hide" id="noExtension">
+          <div class="card">
+            <div class="card-body mt-3 "> <h1>FBI　WARNING </h1><br>
+              Please use Chrome and install <u><a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a></u>  to use worldCupGO!<br><br>
+             <div>注意：请使用谷歌浏览器、并安装钱包插件 <u><a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a></u> 来玩 世界杯GO！<br><br></div>
+            </div>
+          </div>
+       </div>
+      
+
+    <div class="page-group mainPage">
+        <div class="page page-current">
+            
+            
+            <div class="content-padded content-regis">
+                <header class="bar bar-nav">
+                    <a href="#" class="icon icon-refresh pull-left" onclick="App.selectAll()"></a>
+                    <a class="icon pull-right" onclick="App.openTipPop()"><img class="avatar img-wc" src="./image/wc.jpg" width="34" height="34"></a>
+                    <h1 class="title">世界杯GO</h1>
+                  </header>
+                  
+                    <div class="content">
+                        <div class="buttons-tab fixed-tab" >
+                            <a href="#tab1" class="tab tab-link button my-match-tab" onclick="App.selectMine()">我的赛事</a>
+                            <a href="#tab2" class="tab tab-link button all-match-tab active" onclick="App.selectAll()">正在竞猜</a>
+                            <a href="#tab3" class="tab tab-link button end-match-tab" onclick="App.selectEnd()">已结束</a>
+                        </div>
+                        <div class="content-block">
+                            
+                            <div class="tabs">
+                                <div  class="tab my-match-tab" id="my-match">
+                                    <div class="content-block text-center">
+                                        <p>暂无投注任何比赛</p>
+                                    </div>
+                                </div>
+                                <div  class="tab active all-match-tab" id="all-match">
+                                        <div class="content-block text-center">
+                                                <p>还没有新的比赛</p>
+                                            </div>
+                                    <!-- <div class="content-block ">
+                                            <div class="card" onclick="App.openBetPop(1)">
+                                                <span class="lightGray">#22</span>
+                                                    
+        
+                                                    <div class="card-content">
+                                                        <div class="row text-center">
+                                                                <p class=" col-50 theme">10.0092NAS (12人)</p>
+                                                                <p class=" col-50">1.002NAS (2人)</p>
+                                                        </div>
+                                                    </div>
+                                            </div> 
+                                    </div> -->
+                                </div>
+                                <div  class="tab end-match-tab" id="end-match">
+                                    <div class="content-block text-center">
+                                    <p>暂无任何比赛</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                      </div>
+                    
+                    
+                  
+                  
+            </div>
+            
+        </div>
+    </div>
+
+
+
+    
+      <div class="popup popup-bet">
+          <header class="bar bar-nav">
+              <h1 class="title">比赛投注</h1>
+              <a href="#" class="icon  pull-right" onclick="App.closePopup()">关闭 </a>
+          </header>
+          <div class="content text-center">
+            <div class="card mt-3 " id="bet-match">
+                <!-- <div class="card-content-inner text-center">
+                        <p>2018-6-14 12:12 </p> 
+                        <p>小组赛 第一轮</p>
+                </div>
+                <div class="card-content">
+                        <div class="content-block">
+                                <div class="row">
+                                        <div class="col-45">
+                                            <div class="card-content text-center">
+                                                    <img src="" class='card-cover'  width="60%"> 
+                                                    <p>德国</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-10 text-center mt-3">
+                                                VS
+                                            </div>
+                                        <div class="col-45">
+                                                <div class="card-content text-center">
+                                                        <img src="" class='card-cover'  width="60%"> 
+                                                        <p>英格兰</p>
+                                                </div>
+                                            </div>
+                                    </div>
+                        </div>
+                </div> -->
+            </div>
+                
+              <div class="content-block bet-item" id="bet-select">
+                   
+                <div class="row mt-3">
+                    <div class="col-33">
+                        <a href="#" class="button button-big btn-bet button-fill" onclick="App.bet(1)">主队胜 </a>
+                        <p class="mt-3" id="bet-host"></p>
+                    </div>
+                    <div class="col-33">
+                        <a href="#" class="button button-big btn-bet button-success button-fill" onclick="App.bet(2)">平局 </a>
+                        <p class="mt-3" id="bet-draw"></p>
+                    </div>
+                    <div class="col-33">
+                        <a href="#" class="button button-big button-danger button-fill btn-bet" onclick="App.bet(3)">客队胜 </a>
+                        <p class="mt-3" id="bet-guest"></p>
+                    </div>
+                </div>
+              </div>
+              <div class="content-block bet-item hide" id="bet-end">
+                    <h3 class="red">本场比赛已关闭投注！</h3>
+              </div>
+              <div class="content-block bet-item hide" id="bet-final">
+                    <!-- <h2 class="red">比赛结果：3-1</h2>
+                    <div class="content-block">
+                        <div class="row">
+                            <div class="col-33">主队胜 (3) <p>0.0001</p></div>
+                            <div class="col-33">平局 (2) <p>0.002</p></div>
+                            <div class="col-33">客队胜 (1) <p>11</p></div>
+                        </div>
+                    </div>
+                    <div class="content-block mt-3">
+                            <p>选择平局的用户已平分200NAS奖金</p>
+                            <hr>
+                            <p>xxxxxx 分得奖金：0.001 NAS</p>
+                    </div> -->
+                </div>
+              <div class="content-block bet-item hide" id="bet-my-bet">
+                    xxxx
+              </div>
+            
+          </div>
+      </div>
+
+      <div class="popup popup-tip">
+            <header class="bar bar-nav">
+                <h1 class="title">世界杯竞猜说明</h1>
+                <a href="#" class="icon  pull-right" onclick="App.closePopup()">关闭 </a>
+            </header>
+            <div class="content   mt-3">
+                <div class="text-center">
+                      <img src="./image/wc.jpg"  width="100">
+                      <h2>竞猜说明</h2>
+                </div>
+                  
+              <div class="content-block text-left">
+                      <p>1.世界杯GO是一个基于星云链上的球赛竞猜应用</p>
+                      <p>2.用户可以选择对应的赛事进行投注，胜的一方平分败的两方全部NAS</p>
+                      <p>3.每场比赛最低投注金额为：0.01 NAS，不限投注次数</p>
+                      <p>4.派奖公式：胜的一方用户a赢得的NAS总数=用户a投注本金×(1+所有未猜中用户投注的NAS总额/所有猜中用户投注的NAS总额)</p>
+                      <p class="red">5.开赛前1个小时不允许投注，请把握好时间</p>
+                      <p>公平、开源、不可篡改，这就是世界杯GO！ 交流群：530692734</p>
+              </div>
+            </div>
+        </div>
+   
+      <div class="popup popup-login">
+            <header class="bar bar-nav">
+                <h1 class="title">登录世界杯GO</h1>
+                <a href="#" class="icon  pull-right" onclick="$.closeModal('.popup-login')">关闭 </a>
+            </header>
+            <div class="content content-login">
+  
+                <div class="content-block text-center">
+                    <img src="./image/wc.jpg" width="200">
+                   
+                    <h3>加入世界杯竞猜赢NAS</h3>
+                  <p>步骤：打开 NAS nano，点击【我要收币】，点击【复制地址】，然后填入下方输入框内即可</p>
+                  
+                  <input type="text" id='wallet-address' class="my-input" placeholder='输入钱包地址...'/> 
+  
+                   <p> <a href="#" class="button button-big button-fill" onclick="App.login()">登录 </a></p>
+                  
+                </div>
+              </div>
+        </div>
+      <div class="popup popup-jump">
+          
+          <div class="content">
+            <img src="none" width="100%" id="jump-device">
+          </div>
+      </div>
+
+    <!-- <script src="./javascripts/jquery-3.3.1.min.js"></script> -->
+    <script type='text/javascript' src='https://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <!-- <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
+    <script src="./javascripts/nebulas.min.js"></script>
+  <script src="./javascripts/nebPay.js"></script>
+  <script src="./javascripts/app.js"></script>
+  </body>
+</html>
